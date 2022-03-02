@@ -38,6 +38,8 @@ require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'capistrano/rbenv'
 
+require 'capistrano/ssh_doctor'
+
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.0'
 

@@ -2,14 +2,18 @@
 lock "~> 3.16.0"
 
 set :application, "ace"
-set :repo_url, "git@example.com:eureka7000/ace.git"
+set :repo_url, "git@github.com:eureka7000/ace.git"
 
 # Default branch is :master
+
+# Specifiy a branch
+set :branch, "main"
+
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/ace"
-set :deploy_to, "/var/www/#{fetch :application}"
+set :deploy_to, "/home/deploy/#{fetch :application}"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
