@@ -33,7 +33,7 @@
 #   encoding: unicode
 
 development:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   pool: 5
   database: ace
@@ -44,7 +44,7 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   pool: 5
   database: ace
@@ -52,7 +52,7 @@ test:
   password: dragon3360
 
 production:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   pool: 5
   database: ace
