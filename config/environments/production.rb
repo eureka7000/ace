@@ -24,6 +24,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_assets = true
   config.serve_static_files = true
+  config.public_file_server.enabled = true
 
   #config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
