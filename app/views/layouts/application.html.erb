@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>청담에이스클리닉</title>
+
+    <!-- Meta -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="청담에이스클리닉은 피부 전문 병원입니다. 필러, 리프트, 피부관리, 청담피부, 피부크리닉, 피부클리닉, 피부전문, ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청담에이스클리닉은 피부전문병원, 서울 강남구, 청담동 피부전문병원, 피부관리, 쁘띠, 청담 피부관리 ">
     <meta name="author" content="">
 
     <!-- Favicon -->
@@ -44,11 +46,11 @@
     <!-- CSS Customization -->
     <link rel="stylesheet" href="/assets/css/custom.css">
 
-
+    <%= raw JsCssRender.get_css(controller_name, action_name) %>
 
     <%= csrf_meta_tags %>
 
-  <meta name="google-site-verification" content="Hl1qEsuAB9XnNB6zkZUBHs6psTBMGG7gis6yZAAXWTo" />
+	<meta name="google-site-verification" content="Hl1qEsuAB9XnNB6zkZUBHs6psTBMGG7gis6yZAAXWTo" />
     
     <!-- Google analytics -->
     <script>
@@ -68,12 +70,51 @@
     <script type="text/javascript" src="/assets/plugins/jquery/jquery-migrate.min.js"></script>
     <script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <!-- JS Implementing Plugins -->
+    <!-- Jquery Dialog -->
+    <!--<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <style>
+         .ui-widget-header,.ui-state-default, ui-button {
+            background:#b9cd6d;
+            border: 1px solid #b9cd6d;
+            color: #FFFFFF;
+            font-weight: bold;
+         }
+    </style>-->
+
+
+<!-- summernote -->
+
+    <!-- include libraries(jQuery, bootstrap) -->
+<!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">-->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>--> 
+<!--<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>-->
+
+<!-- include summernote css/js-->
+<!--<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">-->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>-->
+
+<!-- summernote -->
+
+
+
+</head>
+
+<body>
+
+<div id="loading" style="display:none">
+    <img src="/assets/img/Loading.gif" />
+</div>
+
+
+    <%= yield %>
+    
+</div><!--/wrapper-->
+
+<!-- JS Implementing Plugins -->
 <script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>
 <script type="text/javascript" src="/assets/plugins/smoothScroll.js"></script>
 <script type="text/javascript" src="/assets/plugins/jquery.parallax.js"></script>
@@ -100,18 +141,52 @@
 <script src="/js/jquery.multi-select.js" type="text/javascript"></script>
 <script src="/js/jquery.quicksearch.js" type="text/javascript"></script>
 
-  </head>
+<script type="text/javascript">
+  WebFontConfig = {
+    custom: {
+      families: ['Nanum Gothic'], urls: ['http://cdn.jsdelivr.net/font-nanum/1.0/nanumgothic/nanumgothic.css']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
 
-  <body>
-<div id="loading" style="display:none">
-    <img src="/assets/img/Loading.gif" />
-</div>
+<script>
 
-<div class="wrapper">
+    jQuery(document).ready(function() {
+        App.init();
+        new WOW().init();
+        // $('#notice_email_confirm_modal').modal();      # 메일 인증 모달
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
 
-  
-</div><!--/wrapper-->
+<script>
 
-    <%= yield %>
+    $(document).ready(function() {
+        var wid = $(window).width();
+
+    if (wid < 500) {
+        $('#history').css({'display':'none'});
+    }
+    });
+
+</script>
+
+
+
+<!--[if lt IE 9]>
+    <script src="/assets/plugins/respond.js"></script>
+    <script src="/assets/plugins/html5shiv.js"></script>
+    <script src="/assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+
 </body>
 </html>
