@@ -1,0 +1,11 @@
+$navbar-default-bg: #181818;
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+
+.firstimg {
+	background-color: #181818;
+}
